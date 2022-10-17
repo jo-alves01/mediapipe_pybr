@@ -32,12 +32,12 @@ class handDetector():
             myHand=self.results.multi_hand_landmarks[handNo]#Gives result for particular hand 
             for id,lm in enumerate(myHand.landmark):#gives id and lm(x,y,z)
                 h,w,c=img.shape#getting h,w for converting decimals x,y into pixels 
-                cx,cy=int(lm.x*w),int(lm.y*h)# pixels coordinates for landmarks
-                xList.append(cx)
-                yList.append(cy)
-                self.lmlist.append([id,cx,cy])
+                px,py=int(lm.x*w),int(lm.y*h)# pixels coordinates for landmarks
+                xList.append(px)
+                yList.append(py)
+                self.lmlist.append([id,px,py])
                 if draw:
-                    cv2.circle(img,(cx,cy),5,(255,255,255),cv2.FILLED)    
+                    cv2.circle(img,(px,py),5,(255,255,255),cv2.FILLED)    
             xmin,xmax=min(xList),max(xList)
             ymin,ymax=min(yList),max(yList)
             bbox=xmin,ymin,xmax,ymax
