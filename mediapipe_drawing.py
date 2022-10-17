@@ -23,9 +23,7 @@ while True:
     lmList,bbox = detector.findPosition(img, draw=False)#using function to find specific landmark position,draw false means no circles on landmarks
     
     if len(lmList)!=0:
-        #print(lmList)
         x1, y1 = lmList[8][1],lmList[8][2]# tip of index finger
-        x2, y2 = lmList[12][1],lmList[12][2]# tip of middle finger
         
         # 3. Check which fingers are up
         fingers = detector.fingersUp()
